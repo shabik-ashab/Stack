@@ -17,6 +17,7 @@ public:
 class Stack{
     Node* head;
     Node* top;
+    int count = 0;
 
 public:
     //push
@@ -26,6 +27,7 @@ public:
         1. checking corner case 1 and set top and head directly if true
         2. set newNode on top->next
         3. set top on the latest top
+        4. set top on newNode->prev
     }
     */
     // corener case
@@ -37,16 +39,61 @@ public:
         //c1:
         if(head == NULL){
             head = top = newNode;
+            count++;
             return;
         }
 
         top->next = newNode;
+        newNode->prev = top;
         top = newNode;
+        count++;
     }
     //pop
+    
+    //corner case
+    //c1: if we only have one element
+    // if top and head is at the same place we can say we only have one element
+    //c2: there is no element in the stack(udnerflow)
+    int pop(){
+        Node* delNode;
+        delNode = top;
+        int chk = -1;
+
+        //c2:
+        if(head == null){
+            cout<<"stack underflow"<<endl;
+            return chk;
+        }
+
+        //c1:
+        if(top == head){
+            head = top = NULL;
+        }else{
+            top = delNode->prev;
+            top->next = NULL;
+        }
+
+        chk = delNode->value;
+        delete delNode;  
+        count--; 
+        return chk;    
+    }
     //empty 
+    bool empty(){
+        if(head == NULL) return true;
+        else return false;
+    }
     //size 
+    int size(){
+        return count;
+    }
     //top
+    int top(){
+        if(top == NULL){
+            cout<<"stack underflow | There is no element in the top"<<endl;
+            return -1;
+        }else return top->value;
+    }
 };
 
 int main()
