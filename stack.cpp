@@ -20,6 +20,11 @@ class Stack{
     int count = 0;
 
 public:
+
+    Stack(){
+        head = NULL;
+        top = NULL;
+    }
     //push
     /*
     push(val)
