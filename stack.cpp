@@ -1,6 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class Node{
+public:
+    int value;
+    Node* next;
+    Node* prev;
+
+    Node(int val){
+        value = val;
+        next = NULL;
+        prev = NULL;
+    }
+}
+
+class Stack{
+    Node* head;
+    Node* top;
+
+public:
+    //push
+    //pop
+    //empty 
+    //size 
+    //top
+}
+
 int main()
 {
     // Architecture of stack -> last in first out (LIFO)
@@ -26,7 +51,7 @@ int main()
     */
 
     /*
-    push algorithom
+    push algorithom O(1)
     corner case:
     c1: if we want to insert something in the array index that doesn't exist
     push(val)
@@ -40,7 +65,7 @@ int main()
     */
 
    /*
-   pop algotihom
+   pop algotihom O(1)
    //corner case 
    //c1: chek if we have any underflow situtaion 
    pop()
@@ -52,7 +77,10 @@ int main()
    }
    */
 
-    
+    // stack using single linked list
+    // time complexity of pop for single linked list O(n)
+    // time complexity of pop for doubly linked list O(1)
+
     
     return 0;
 }
