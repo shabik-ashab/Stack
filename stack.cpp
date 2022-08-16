@@ -12,7 +12,7 @@ public:
         next = NULL;
         prev = NULL;
     }
-}
+};
 
 class Stack{
     Node* head;
@@ -20,11 +20,34 @@ class Stack{
 
 public:
     //push
+    /*
+    push(val)
+    {
+        1. checking corner case 1 and set top and head directly if true
+        2. set newNode on top->next
+        3. set top on the latest top
+    }
+    */
+    // corener case
+    //c1: if (head == NULL) we can directly set head and top as newNode
+    void push(int val){
+
+        Node* newNode = new Node(val);
+
+        //c1:
+        if(head == NULL){
+            head = top = newNode;
+            return;
+        }
+
+        top->next = newNode;
+        top = newNode;
+    }
     //pop
     //empty 
     //size 
     //top
-}
+};
 
 int main()
 {
