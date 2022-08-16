@@ -25,7 +25,7 @@ public:
         head = NULL;
         top = NULL;
     }
-    
+
     //push 
     void push(int val){
 
@@ -51,7 +51,7 @@ public:
         int chk = -1;
 
         //c2:
-        if(head == null){
+        if(head == NULL){
             cout<<"stack underflow"<<endl;
             return chk;
         }
@@ -79,7 +79,7 @@ public:
         return count;
     }
     //top
-    int top(){
+    int Top(){
         if(top == NULL){
             cout<<"stack underflow | There is no element in the top"<<endl;
             return -1;
