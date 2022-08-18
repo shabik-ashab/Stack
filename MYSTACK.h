@@ -1,38 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node{
+template <typename N>
+class Node
+{
 public:
-    int value;
-    Node* next;
-    Node* prev;
+    N value;
+    Node *next;
+    Node *prev;
 
-    Node(int val){
+    Node(N val)
+    {
         value = val;
         next = NULL;
         prev = NULL;
     }
 };
 
-class Stack{
-    Node* head;
-    Node* top;
+template <typename S>
+class Stack
+{
+    Node <S> *head;
+    Node <S> *top;
     int count = 0;
 
 public:
-
-    Stack(){
+    Stack()
+    {
         head = NULL;
         top = NULL;
     }
 
-    //push 
-    void push(int val){
+    // push
+    void push(S val)
+    {
 
-        Node* newNode = new Node(val);
+        Node <S> *newNode = new Node <S> (val);
 
-        //c1:
-        if(head == NULL){
+        // c1:
+        if (head == NULL)
+        {
             head = top = newNode;
             count++;
             return;
@@ -44,46 +51,61 @@ public:
         count++;
     }
 
-    //pop
-    int pop(){
-        Node* delNode;
+    // pop
+    S pop()
+    {
+        Node <S> *delNode;
         delNode = top;
-        int chk = -1;
+        S chk;
 
-        //c2:
-        if(head == NULL){
-            cout<<"stack underflow"<<endl;
+        // c2:
+        if (head == NULL)
+        {
+            cout << "stack underflow" << endl;
             return chk;
         }
 
-        //c1:
-        if(top == head){
+        // c1:
+        if (top == head)
+        {
             head = top = NULL;
-        }else{
+        }
+        else
+        {
             top = delNode->prev;
             top->next = NULL;
         }
 
         chk = delNode->value;
-        delete delNode;  
-        count--; 
-        return chk;    
+        delete delNode;
+        count--;
+        return chk;
     }
-    //empty 
-    bool empty(){
-        if(head == NULL) return true;
-        else return false;
+    // empty
+    bool empty()
+    {
+        if (head == NULL)
+            return true;
+        else
+            return false;
     }
-    //size 
-    int size(){
+    // size
+    int size()
+    {
         return count;
     }
-    //top
-    int Top(){
-        if(top == NULL){
-            cout<<"stack underflow | There is no element in the top"<<endl;
-            return -1;
-        }else return top->value;
+    // top
+    S Top()
+    {
+        S chk;
+        if (top == NULL)
+        {
+            cout << "stack underflow | There is no element in the top" << endl;
+            return chk;
+        }
+        else{
+            chk = top->value;
+            return chk;
+        }
     }
 };
-
