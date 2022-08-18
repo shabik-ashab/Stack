@@ -3,13 +3,30 @@
 
 using namespace std;
 
+void insertAtBottom(Stack <int> &chk, int elem){
+    if(chk.empty()){
+        chk.push(elem);
+    }
+
+    int topElement = chk.Top();
+    chk.pop();
+
+    insertAtBottom(chk,elem);
+}
+
 void reverseStack(Stack <int> &chk){
 
-    if(chk.empty())
+    if(chk.empty()){
+        return;
+    }
 
     int topElement = chk.Top();
     chk.pop();
     reverseStack(chk);
+
+    insertAtBottom(chk,topElement);
+
+    chk.push(topElement);
 
 }
 
