@@ -108,4 +108,18 @@ public:
             return chk;
         }
     }
+
+    S mid(){
+        int mid = count/2;
+        int flag = 1;
+
+        Node<S> *temp;
+        temp = head;
+        while(flag <= mid){
+            temp = temp->next;
+            flag++;
+        }
+
+        return temp->value;
+    }
 };

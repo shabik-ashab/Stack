@@ -3,18 +3,23 @@
 
 using namespace std;
 
-void insertAtBottom(Stack <int> &chk, int elem){
+void insertAtBottom(Stack<int> &chk, int elem){
+
+
     if(chk.empty()){
         chk.push(elem);
+        return;
     }
 
     int topElement = chk.Top();
     chk.pop();
 
     insertAtBottom(chk,elem);
+
+    chk.push(topElement);
 }
 
-void reverseStack(Stack <int> &chk){
+void reverseStack(Stack<int> &chk){
 
     if(chk.empty()){
         return;
@@ -26,8 +31,6 @@ void reverseStack(Stack <int> &chk){
 
     insertAtBottom(chk,topElement);
 
-    chk.push(topElement);
-
 }
 
 int main()
@@ -38,6 +41,14 @@ int main()
     st.push(3);
     st.push(4);
     st.push(5);
+
+    reverseStack(st);
+
+    cout<<st.size();
+
+    while(!st.empty()){
+        cout<<st.pop()<<endl;
+    }
 
 
     return 0;
